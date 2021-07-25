@@ -1,6 +1,6 @@
-# todoapp
+# mobile on todoapp
 
-A new Flutter project.
+frontend of flutter project 
 
 ## Getting Started
 
