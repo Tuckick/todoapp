@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/styles/text_style.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Todo App'),
@@ -36,16 +37,58 @@ class _MyHomePageState extends State<MyHomePage> {
         length: 3,
         child: SafeArea(
           child: Scaffold(
-            body: TabBarView(
+            body: Stack(
               children: [
-                Container(
-                  color: Colors.yellow,
+                TabBarView(
+                  children: <Widget>[
+                    Container(
+                      color: Colors.grey.shade900,
+                    ),
+                    Container(
+                      color: Colors.grey.shade900,
+                    ),
+                    Container(
+                      color: Colors.grey.shade900,
+                    ),
+                  ],
                 ),
                 Container(
-                  color: Colors.orange,
+                  height: MediaQuery.of(context).size.width * 0.4,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        'Intray',
+                        style: intrayTitleText,
+                      ),
+                      Container(
+                        color: Colors.orange.shade700,
+                        height: 30,
+                        width: 30,
+                      )
+                    ],
+                  ),
                 ),
                 Container(
-                  color: Colors.lightGreen,
+                  margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.width * 0.33,
+                    left: MediaQuery.of(context).size.width * 0.43,
+                  ),
+                  child: FloatingActionButton(
+                    child: Icon(
+                      Icons.add,
+                      size: 45,
+                    ),
+                    backgroundColor: Colors.orange.shade700,
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),
@@ -61,13 +104,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(Icons.perm_identity),
                 ),
               ],
-              labelColor: Colors.yellow,
-              unselectedLabelColor: Colors.blue,
+              labelColor: Colors.grey.shade900,
+              unselectedLabelColor: Colors.grey.shade300,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(5.0),
-              indicatorColor: Colors.red,
+              indicatorColor: Colors.transparent,
             ),
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.white,
           ),
         ),
       ),
